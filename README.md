@@ -33,11 +33,11 @@ Ta gọi mạng là một đồ thị có hướng $G = (V, E)$, trong đó có 
     - Luồng trên mỗi cung không vượt quá khả năng thông qua của nó: $\newline0 ≤ f[u, v] ≤ c[u, v] (∀ (u, v) ∈ E)$
     - Với mọi đỉnh $v$ không trùng với đỉnh phát $s$ và đỉnh thu $t$, tổng luồng trên các cung đi vào $v$ bằng tổng luồng trên các cung đi ra khỏi $v$:
     
-    ![image1](images\image1.png)
+    ![](images/image1.png)
     
 - **Giá trị của luồng (value of flow)** là tổng luồng trên các cung đi ra khỏi đỉnh phát = tổng luồng trên các cung đi vào đỉnh thu.
 
-![Untitled](images\Untitled.png)
+![](images/Untitled.png)
 
 ## **Bài toán**
 Cho một mạng network $G = (V, E)$ là một đồ thị có hướng. Hãy tìm luồng $f*$ trong mạng với giá trị luồng lớn nhất. Luồng như vậy gọi là luồng cực đại trong mạng và bài toán này gọi là bài toán tìm luồng cực đại trên mạng
@@ -60,7 +60,7 @@ Cho một mạng network $G = (V, E)$ là một đồ thị có hướng. Hãy t
 - Ta gọi lát cắt $(X, Y)$ là một cách phân hoạch tập đỉnh $V$ của mạng thành hai tập rời nhau $X$ và $Y$, trong đó $X$ chứa đỉnh phát và $Y$ chứa đỉnh thu. Khả năng thông qua của lát cắt $(X, Y)$ là tổng tất cả các khả năng thông qua của các cung $(u, v)$ có $u ∈  X \enspace và \enspace v ∈ Y.$
 - Lát cắt với khả năng thông qua nhỏ nhất gọi là lát cắt hẹp nhất
 
-![image3](images\image3.png)
+![](images/image3.png)
 
 - Bài toán Lát cắt hẹp nhất $(Minimum cut)$ đi tìm lát cắt có khả năng thông qua nhỏ nhất
 
@@ -81,15 +81,15 @@ $$
 \begin{align*} &ResidualNetwork(G(E,V),\enspace s,\enspace t, \enspace f(.)): \newline &~~~~ for \enspace each \enspace u\rightarrow v \in E \newline & ~~~~~~~~C_{f}[u,v] \leftarrow c[u,v] - f[u,v] \newline & ~~~~~~~~if \enspace f[u,v] > 0: \newline &~~~~~~~~~~~~ C_{f}[u,v] \leftarrow f[u,v] \end{align*}
 $$
 
-![image4](images\image4.png)
+![](images/image4.png)
 
-![image5](images\image5.png)
+![](images/image5.png)
 
 Đồ thị $G_{f}$ được gọi là mạng thặng dư
 
-![image6](images\image6.png)
+![](images/image6.png)
 
-![image7](images\image7.png)
+![](images\image7.png)
 
 ### **Đường tăng luồng (augmenting path)**
 
@@ -123,9 +123,9 @@ $$
 - **Ví dụ**: Với đồ thị tăng luồng  $G_{f}$ như trên, giả sử chọn đường đi $(1, 3, 4, 2, 5, 6)$. Giá trị nhỏ nhất của trọng số trên các cung là 2, vậy thì ta sẽ tăng các giá trị $f[1, 3]$,  $f[3, 4]$, $f[2, 5], f[5, 6]$ lên 2, (do các cung đó là cung thuận) và giảm giá trị $f[2, 4]$ đi 2 (do cung $(4, 2)$ là cung nghịch). Được luồng mới có giá trị 9.
         
 
-![image6](images\image6.png)
+![](images/image6.png)
 
-![image8](images\image8.png)
+![](images/image8.png)
 
 ### **Liên hệ giữa min cut problem và max flow problem**
 
@@ -142,7 +142,7 @@ $$
 \mid f\mid \enspace \leq \enspace c(X,Y)
 $$
 
-![image9](images\image9.png)
+![](images/image9.png)
 
 ### Mincut - maxflow theorem:
 
