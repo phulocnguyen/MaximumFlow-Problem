@@ -108,9 +108,18 @@ $$
     
     - **Cài đặt**
     
-    $$
-    \begin{align*} &Augment(G(V,E), s, t,f(.), P, \Delta): \newline &~~~~Let(s = u_{1}\rightarrow v_{1}),(u_{2}\rightarrow v_{2}),..., (u_{k}\rightarrow v_{k}=t) \enspace be \enspace arcs \enspace in \enspace P \newline &~~~~ for \enspace i \leftarrow 1 \enspace to \enspace k: \newline &~~~~~~~~~ if \enspace (u_{i}, v_{i})\in E: \newline &~~~~~~~~~~~~~~ f[u_{i}, v_{i}]\leftarrow f[u_{i}, v_{i}]-\Delta \newline &~~~~~~~~ else \newline &~~~~~~~~~~~~~ f[v_{i}, u_{i}]\leftarrow f[v_{i}, u_{i}]+\Delta \end{align*}
-    $$
+$$
+\begin{align*} 
+& \text{Augment}(G(V,E), s, t, f(.), P, \Delta): \newline 
+&~~~~ \text{Let } (s = u_{1} \rightarrow v_{1}), (u_{2} \rightarrow v_{2}), ..., (u_{k} \rightarrow v_{k} = t) \enspace \text{be arcs in } P \newline 
+&~~~~ \text{for } i \leftarrow 1 \enspace \text{to } k: \newline 
+&~~~~~~~~~ \text{if } (u_{i}, v_{i}) \in E: \newline 
+&~~~~~~~~~~~~~~ f[u_{i}, v_{i}] \leftarrow f[u_{i}, v_{i}] - \Delta \newline 
+&~~~~~~~~ \text{else} \newline 
+&~~~~~~~~~~~~~ f[v_{i}, u_{i}] \leftarrow f[v_{i}, u_{i}] + \Delta 
+\end{align*}
+$$
+
     
     - **Ví dụ**: Với đồ thị tăng luồng  $G_{f}$ như trên, giả sử chọn đường đi $(1, 3, 4, 2, 5, 6)$. Giá trị nhỏ nhất của trọng số trên các cung là 2, vậy thì ta sẽ tăng các giá trị $f[1, 3]$,  $f[3, 4]$,
         
@@ -165,9 +174,23 @@ $$
     - Bước 3: Thông báo giá trị luồng cực đại tìm được
 - Mã giả
     
-    $$
-    \begin{align*} & FordFulkerson(G(V,E), s, t):\newline &~~~~~for\enspace each (u,v) \in E \newline &~~~~~~~~~ f[u,v]\leftarrow 0 \newline &~~~~~ while \newline &~~~~~~~~~~ G_{f}\leftarrow ResidualNetwork(G, s, t, f) \newline &~~~~~~~~~~ P\leftarrow FindAugmentingPath(G_{f}, s) \newline &~~~~~~~~~~ if \enspace P = \emptyset \newline &~~~~~~~~~~~~~~~~ return \enspace f \newline &~~~~~~~~~~\Delta \leftarrow+ \infty \newline &~~~~~~~~~ for \enspace each (u, v) \in P \newline &~~~~~~~~~~~~~~~~~\Delta \leftarrow min(\Delta, C_{f}[u,v]) \newline &~~~~~~~~~Augment(G, s, t, f, P, \Delta) \end{align*}
-    $$
+$$
+\begin{align*} 
+& \text{FordFulkerson}(G(V,E), s, t): \newline 
+&~~~~~ \text{for each} (u,v) \in E \newline 
+&~~~~~~~~~ f[u,v] \leftarrow 0 \newline 
+&~~~~~ \text{while true} \newline 
+&~~~~~~~~~~ G_{f} \leftarrow \text{ResidualNetwork}(G, s, t, f) \newline 
+&~~~~~~~~~~ P \leftarrow \text{FindAugmentingPath}(G_{f}, s) \newline 
+&~~~~~~~~~~ \text{if} \enspace P = \emptyset \newline 
+&~~~~~~~~~~~~~~~~ \text{return} \enspace f \newline 
+&~~~~~~~~~~ \Delta \leftarrow +\infty \newline 
+&~~~~~~~~~ \text{for each} (u, v) \in P \newline 
+&~~~~~~~~~~~~~~~~~ \Delta \leftarrow \min(\Delta, C_{f}[u,v]) \newline 
+&~~~~~~~~~ \text{Augment}(G, s, t, f, P, \Delta) 
+\end{align*}
+$$
+
     
 - Cài đặt
     
